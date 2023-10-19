@@ -1,10 +1,17 @@
-import {  useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { AuthContex } from "../../Providers/AuthProvider";
+import { FaUserCircle } from 'react-icons/fa';
 import { CiLight, CiDark } from 'react-icons/ci'
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContex);
     const [isDark, setIsDark] = useState()
+
+    const handleSignOut = () => {
+        logOut()
+    }
 
     useEffect(() => {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -70,7 +77,25 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button>Login</button>
+                    {
+                        user ?
+                            <div className="btn bg-transparent text-orange-500 border-orange-500 hover:border-orange-300">
+                                {
+                                    user.photoURL ?
+                                        <div className="avatar">
+                                            <div className="w-6 rounded-full">
+                                                <img src={user.photoURL} />
+                                            </div>
+                                        </div>
+                                        :
+                                        <FaUserCircle />
+                                }
+                                <button onClick={handleSignOut}>Sign Out</button>
+                            </div>
+                            :
+                            <Link className="btn text-white bg-orange-500 border-none hover:bg-orange-600" to={'/login'}>Login</Link>
+                    }
+
                 </div>
             </div>
         </div>

@@ -5,32 +5,24 @@ const FeaturedBrands = () => {
 
   const [FeaturedBrands, setFeaturedBrands] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://brandshop-server-ten.vercel.app/brands');
-        const data = await response.json();
+    fetch('https://brandshop-server-ten.vercel.app/brands')
+      .then(res => res.json())
+      .then(data => {
         setFeaturedBrands(data);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+        setLoading(false)
+      })
+      .catch(error => {
+        console.error(error)
+        setLoading(false)
+      })
+  }, [])
 
   if (loading) {
     return <div className='h-[80vh] flex justify-center items-center bg-white dark:bg-slate-800'>
       <span className="loading loading-spinner loading-lg"></span>
     </div>;
-  }
-
-  if (error) {
-    return <div>Error loading featured products. Please try again later.</div>;
   }
 
   return (
