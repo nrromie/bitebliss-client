@@ -40,11 +40,17 @@ const BrandsProducts = () => {
         <section className="py-12 bg-gray-100">
             <div className="container w-10/12 mx-auto">
                 <h2 className="text-3xl font-semibold mb-8">Featured Products</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {brandsProducts.map(product => (
-                        <ProductCard key={product._id} product={product} />
-                    ))}
-                </div>
+                {brandsProducts.length === 0 ?
+                    (
+                        <p>Out of Stock</p>
+                    )
+                    :
+                    (<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {brandsProducts.map(product => (
+                            <ProductCard key={product._id} product={product} />
+                        ))}
+                    </div>)
+                }
             </div>
         </section>
     );
