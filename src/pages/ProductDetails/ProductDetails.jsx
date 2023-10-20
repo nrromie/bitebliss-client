@@ -69,24 +69,26 @@ const ProductDetails = () => {
     const { image, name, brandName, type, price, shortDescription, rating } = product;
 
     return (
-        <div className="container w-10/12 mx-auto p-8">
-            <div className="flex flex-col md:flex-row lg:flex-row lg:h-[450px] gap-8">
-                <div className="w-full md:w-1/2 lg:w-1/2 h-full flex justify-center items-center">
-                    <img src={image} alt={name} className="w-full h-auto lg:w-[450px] lg:h-full object-cover rounded-lg shadow-lg" />
+        <div className='bg-white dark:bg-slate-800'>
+            <div className="container w-10/12 mx-auto p-8">
+                <div className="flex flex-col md:flex-row lg:flex-row lg:h-[450px] gap-8">
+                    <div className="w-full md:w-1/2 lg:w-1/2 h-full flex justify-center items-center">
+                        <img src={image} alt={name} className="w-full h-auto lg:w-[450px] lg:h-full object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <div className="w-full md:w-1/2 lg:w-1/2">
+                        <h2 className="text-4xl font-semibold mb-4">{name}</h2>
+                        <p className="text-gray-600 dark:text-white text-lg mb-4">{brandName}</p>
+                        <p className="text-gray-600 dark:text-white text-lg mb-4">{type}</p>
+                        <p className="text-green-600 text-xl font-semibold mb-4">${price.toFixed(2)}</p>
+                        <p className="text-gray-600 dark:text-white text-lg mb-4">{shortDescription}</p>
+                        <p className="text-gray-600 dark:text-white text-lg mb-4">Rating: {rating}</p>
+                        <button onClick={handleAddToCart} className="bg-orange-500 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div className="w-full md:w-1/2 lg:w-1/2">
-                    <h2 className="text-4xl font-semibold mb-4">{name}</h2>
-                    <p className="text-gray-600 text-lg mb-4">{brandName}</p>
-                    <p className="text-gray-600 text-lg mb-4">{type}</p>
-                    <p className="text-green-600 text-xl font-semibold mb-4">${price.toFixed(2)}</p>
-                    <p className="text-gray-600 text-lg mb-4">{shortDescription}</p>
-                    <p className="text-gray-600 text-lg mb-4">Rating: {rating}</p>
-                    <button onClick={handleAddToCart} className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-                        Add to Cart
-                    </button>
-                </div>
+                <Toaster />
             </div>
-            <Toaster />
         </div>
     );
 };

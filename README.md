@@ -1,8 +1,12 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project Features:
+  - Focus on individual brands within the Food and Beverage category.
+  - Users can explore specific products from their favorite brands.
+  - User-friendly design for effortless navigation.
+  - Detailed product listings, including images, names, brands, types, prices, and ratings.
+  - Seamless product addition to the cart.
+  - Easy modification of product selections.
+  - Secure email and password-based authentication.
+  - Convenient login options via Facebook or Google.
+  - Ensures a safe and user-friendly login process.
+  - Full responsiveness across devices (desktops, tablets, and mobile phones).
+  - Optional dark/light theme toggle for personalized user experience.

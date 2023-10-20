@@ -19,6 +19,7 @@ const Navbar = () => {
             setIsDark(true)
         } else {
             document.documentElement.classList.remove('dark')
+            setIsDark(false)
         }
     }, [])
 
@@ -95,7 +96,6 @@ const Navbar = () => {
                             :
                             <Link className="btn text-white bg-orange-500 border-none hover:bg-orange-600" to={'/login'}>Login</Link>
                     }
-
                 </div>
             </div>
         </div>
